@@ -16,7 +16,7 @@ for row in DevInfo:
   print(seed)
   print(" ")
 
-  power=generate(DevID[1][0],maxS[1][0],seed[1][0])
+  power=generate(DevID,maxS,seed)
   print(power)
   
   cur.execute("INSERT INTO `syntheticPowerData` (`DevID`, `v`, `i`, `pf`, `p`, `q`, `s`, `status`, `seed`) VALUES (%(DevID)s, %(v)s, %(i)s, %(pf)s, %(p)s, %(q)s, %(s)s, %(status)s, %(seed)s);",power);
