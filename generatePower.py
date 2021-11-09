@@ -4,7 +4,7 @@ from syntheticPowerData import generate
 conn = pymysql.connect(host='localhost', user='sai', password='sheeba99', database='flir')
 cur = conn.cursor()
 cur.execute("SELECT DevID,seed FROM `DevInfo` ORDER BY `DevInfo`.`ID` ASC")
-DevInfo = cur.fetchall()
+DevInfo = cur.fetchone()
 DevID = DevInfo[0]
 seed = DevInfo[1]
 print(DevID)
