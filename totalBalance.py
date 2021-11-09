@@ -1,6 +1,6 @@
 from iota import Iota, Address, TryteString, ProposedTransaction, Tag
 from iota.crypto.types import Seed
-import time
+import time, pymysql
 url="http://sai-iota.duckdns.org:14265"
 conn = pymysql.connect(host='localhost', user='sai', password='sheeba99', database='flir')
 cur = conn.cursor()
