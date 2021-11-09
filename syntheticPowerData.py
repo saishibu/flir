@@ -11,6 +11,6 @@ def generate(DevID,maxS,seed):
   status = ""
   if s>maxS:
     status = "OL"
-  powerData={'id':DevID,'v':v,'i':i,'pf':pf,'p':p,'q':q,'s':s,'status':status,'seed':seed}
+  powerData={'DevID':DevID,'v':v,'i':i,'pf':pf,'p':p,'q':q,'s':s,'status':status,'seed':seed}
   return(powerData)
   
