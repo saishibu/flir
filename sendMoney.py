@@ -10,7 +10,7 @@ sapi = Iota(url,sseed)
 receiver = rapi.get_new_addresses()
 receiver=receiver['addresses'][0]
 print(receiver)
-tx = ProposedTransaction(address=Address(receiver), message=TryteString.from_unicode(message),tag=Tag('VALUETX'),value=int(amount))
+tx = ProposedTransaction(address=Address(receiver), message=TryteString.from_unicode("message"),tag=Tag('VALUETX'),value=int(100))
 input = sapi.get_inputs(start=0, stop=10)
 inputs = input['inputs']
 tx = sapi.prepare_transfer(transfers=[tx], inputs=inputs)
