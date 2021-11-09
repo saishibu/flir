@@ -2,6 +2,8 @@ from iota import Iota, Address, TryteString, ProposedTransaction, Tag
 from iota.crypto.types import Seed
 import time
 url="http://sai-iota.duckdns.org:14265"
+rseed="LZZNXWOZYEINHUSZLCMCVM9SMXLQALEZ9FAIUU9NFTRRCIFVPAIXEBYFMCSCGBQTPAEHU9RVUSXWMFXGO"
+sseed="ZIKXTJTKXRVPZIZQZYXTH9YJPCTEHP9HTFTBCPMXSK9HPHTNQBUIRAHAVPXRYPXZXRCVFZTUPQTIILITJ"
 # def send(rseed,sseed,amount,message):
 rapi = Iota(url,rseed)
 sapi = Iota(url,sseed)
