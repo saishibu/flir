@@ -4,7 +4,7 @@ from syntheticPowerData import generate
 conn = pymysql.connect(host='localhost', user='sai', password='sheeba99', database='flir')
 cur = conn.cursor()
 cur.execute("SELECT DevID,maxS,seed FROM `DevInfo`;")
-DevInfo = cur.fetchall()
+DevInfo = cur.fetchone()
 for row in DevInfo:
   DevID = DevInfo[0]
   maxS = DevInfo[1]
