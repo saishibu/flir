@@ -11,5 +11,6 @@ print(DevID)
 print(seed)
 power=generate(DevID[0],5000,seed[0])
 print(power)
+print(DevID[0])
 cur.execute("INSERT INTO `syntheticPowerData` (`DevID`, `v`, `i`, `pf`, `p`, `q`, `s`, `status`, `seed`) VALUES (%(DevID)s, %(v)s, %(i)s, %(pf)s, %(p)s, %(q)s, %(s)s, %(status)s, %(seed)s);",power);
 conn.commit() 
