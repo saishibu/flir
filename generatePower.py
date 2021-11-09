@@ -9,5 +9,7 @@ cur.execute("SELECT seed FROM `DevInfo` ORDER BY `DevInfo`.`ID` ASC")
 seed = cur.fetchall()
 print(DevID)
 print(seed)
-power=generate(1,5000,0)
+power=generate(DevID[0],5000,seed[0])
 print(power)
+cur.execute("INSERT INTO `syntheticPowerData` (`DevID`, `v`, `i`, `pf`, `p`, `q`, `s`, `status`, `seed`) VALUES (%(DevID)s, %(v)s, %(i)s, %(pf)s, %(p)s, %(q)s, %(s)s, %(status)s, %(seed)s);",power);
+conn.commit() 
