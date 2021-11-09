@@ -11,10 +11,10 @@ for row in DevInfo:
   maxS = row[1]
   seed = row[2]
 
-print(DevID)
-print(maxS)
-print(seed)
-print(" ")
+  print(DevID)
+  print(maxS)
+  print(seed)
+  print(" ")
 
 # power=generate(DevID[1][0],maxS[1][0],seed[1][0])
 # print(power)
