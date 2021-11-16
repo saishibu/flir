@@ -37,7 +37,7 @@ def getUname(uname):
 		uname = cur.fetchone()
 		uname = uname[0]
 	except:
-		uname = 'No user found'
+		uname = 0
 	return uname
 if __name__ == '__main__':
 #app.run will make the APIs available on this particular IP address and Port 5000
