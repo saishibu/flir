@@ -27,7 +27,7 @@ def balance():
 	api = Iota(url,seed)
 	input = api.get_inputs(start=0, stop=10)
 	totalbalance=input['totalBalance']
-	return totalbalance
+	return str(totalbalance)
 if __name__ == '__main__':
 #app.run will make the APIs available on this particular IP address and Port 5000
 #0.0.0.0  ip means any one can access.
