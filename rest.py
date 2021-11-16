@@ -18,10 +18,16 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 url="http://sai-iota.duckdns.org:14265"
 
-@app.route('/')
+@app.route('/home')
 def welcome():
 	return "Welcome to Sai Smart Community, Share Power & Earn Tokens. Go Green. \n Login to continue."
-
+@app,route('/getBalance')
+def balance():
+	seed='AXVLICISWIOLHJREGKV9JJTBBFJFIPZAGGERYFDQYXBQDLNZWCPQKULCHK9TIOLNHTWUSEGICEZCGGXVA'
+	api = Iota(url,seed)
+	input = api.get_inputs(start=0, stop=10)
+	totalbalance=input['totalBalance']
+	return totalbalance
 if __name__ == '__main__':
 #app.run will make the APIs available on this particular IP address and Port 5000
 #0.0.0.0  ip means any one can access.
