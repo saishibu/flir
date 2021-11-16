@@ -21,7 +21,7 @@ url="http://sai-iota.duckdns.org:14265"
 @app.route('/home')
 def welcome():
 	return "Welcome to Sai Smart Community, Share Power & Earn Tokens. Go Green. \n Login to continue."
-@app,route('/getBalance')
+@app.route('/getBalance')
 def balance():
 	seed='AXVLICISWIOLHJREGKV9JJTBBFJFIPZAGGERYFDQYXBQDLNZWCPQKULCHK9TIOLNHTWUSEGICEZCGGXVA'
 	api = Iota(url,seed)
