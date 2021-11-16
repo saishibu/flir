@@ -35,7 +35,7 @@ def getUname(uname):
 	cur.execute('SELECT friendlyName FROM `DevInfo` WHERE friendlyName = %s',uname)
 	uname = cur.fetchone()
 	print(uname)
-	return uname
+	return uname[0]
 if __name__ == '__main__':
 #app.run will make the APIs available on this particular IP address and Port 5000
 #0.0.0.0  ip means any one can access.
