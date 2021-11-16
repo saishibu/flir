@@ -5,7 +5,10 @@ from flaskext.mysql import MySQL
 from iota import Iota, Address, TryteString, ProposedTransaction, Tag
 from iota.crypto.types import Seed
 
-ASSETS_DIR = os.path.dirname(os.path.abspath(__file__))
+from OpenSSL import SSL
+context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
+context.use_privatekey_file('server.key')
+context.use_certificate_file('server.crt')   
 
 #assign a Flask Class
 app=Flask(__name__)
