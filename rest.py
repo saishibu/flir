@@ -31,8 +31,9 @@ def balance():
 
 @app.route('/getUname/<uname>')
 def balance(uname):
+	data={'uname':uname}
 	cur = mysql.connect().cursor()
-	cur.execute('SELECT friendlyName FROM `DevInfo` WHERE friendlyName = %d;'uname)
+	cur.execute('SELECT friendlyName FROM `DevInfo` WHERE friendlyName = %(uname)s;'data)
 	uname = cur.fetchone()
 	return uname
 if __name__ == '__main__':
