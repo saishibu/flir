@@ -20,7 +20,7 @@ url="http://sai-iota.duckdns.org:14265"
 
 @app.route('/')
 def welcome():
-	return "Welcome to Hyperlocal eMart, Shopping made simple. \n Login to continue."
+	return "Welcome to Sai Smart Community, Share Power & Earn Tokens. Go Green. \n Login to continue."
 
 if __name__ == '__main__':
 #app.run will make the APIs available on this particular IP address and Port 5000
