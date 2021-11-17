@@ -18,7 +18,7 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 url="http://sai-iota.duckdns.org:14265"
 
-@app.route('/home')
+@app.route('/')
 def welcome():
 	return "Welcome to Sai Smart Community, Share Power & Earn Tokens. Go Green. \n Login to continue."
 @app.route('/getBalance')
