@@ -7,7 +7,7 @@ from iota.crypto.types import Seed
 
 import ssl
 context = ssl.SSLContext()
-context.load_cert_chain('cert.pem', 'key.pem')
+context.load_cert_chain('/home/saishibu38380/flir/cert.pem', '/home/saishibu38380/flir/key.pem')
 
 #assign a Flask Class
 app=Flask(__name__)
