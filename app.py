@@ -37,13 +37,16 @@ def balance(seed):
 @app.route('/getUname/<uname>')
 def getUname(uname):
 	cur = mysql.connect().cursor()
-	cur.execute('SELECT friendlyName FROM `DevInfo` WHERE friendlyName = %s',uname)
+	cur.execute('SELECT DevID,seed,friendlyName FROM `DevInfo` WHERE friendlyName = %s',uname)
 	try:	
-		uname = cur.fetchone()
-		uname = uname[0]
+		data = cur.fetchone()
+		uname = data[2]
+		seed = data[1]
+		DevID = data[0]
+		data={'uname':uname,'seed':seed,'DevID':DevID}
+		
 	except:
-		uname = '0'
-	data={'uname':uname}
+		data={'uname':0,'seed':0,'DevID':0}
 	return data
 if __name__ == '__main__':
 #app.run will make the APIs available on this particular IP address and Port 5000
