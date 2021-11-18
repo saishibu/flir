@@ -25,9 +25,9 @@ url="http://localhost:14265"
 @app.route('/')
 def welcome():
 	return "Welcome to Sai Smart Community, Share Power & Earn Tokens. Go Green. \n Login to continue."
-@app.route('/getBalance')
-def balance():
-	seed='AXVLICISWIOLHJREGKV9JJTBBFJFIPZAGGERYFDQYXBQDLNZWCPQKULCHK9TIOLNHTWUSEGICEZCGGXVA'
+@app.route('/getBalance/<seed>')
+def balance(seed):
+	#seed='AXVLICISWIOLHJREGKV9JJTBBFJFIPZAGGERYFDQYXBQDLNZWCPQKULCHK9TIOLNHTWUSEGICEZCGGXVA'
 	api = Iota(url,seed)
 	input = api.get_inputs(start=0, stop=10)
 	totalbalance=input['totalBalance']
