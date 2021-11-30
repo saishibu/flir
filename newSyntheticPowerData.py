@@ -39,9 +39,9 @@ PHWSImport = round(random.uniform(L_ThDER,3),2)
 PHWSExport = round(random.uniform(L_ThDER,H_ThDER),2)
 PHWSTotal = round(PHWSImport-PHWSExport,2)
 if PHWSTotal < 0:
-  print(Exporting)
+  print("Exporting")
 else:
-  print(Importing)
+  print("Importing")
   
 print(PHWSTotal)
 print(PHWSImport)
