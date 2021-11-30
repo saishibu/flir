@@ -1,4 +1,5 @@
 import random, math, pymysql
+from datetime import datetime, time
 
 # 1 - DER
 # 	Time 12am to 11:59pm
