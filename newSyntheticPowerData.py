@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import random, math, pymysql
 from datetime import datetime, time
 
