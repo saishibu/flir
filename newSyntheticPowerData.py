@@ -11,11 +11,9 @@ from datetime import datetime, time
 if time(10,30) <= datetime.now().time() <= time(16,30):
   H_ThDER = 15 #Wind + Solar
   L_ThDER = 5
-  print(datetime.now().time())
 else:
   H_ThDER = 5 #Wind Only
   L_ThDER = 0
-  print(datetime.now().time())
 PDER = round(random.uniform(L_ThDER,H_ThDER),2)
 
 print(PDER)
@@ -30,6 +28,19 @@ print(PDER)
 # 	Import power from DER when more power required
 # 	Export at Rs. 2 PU and Import at Rs. 4 PU
 
+if time(10,30) <= datetime.now().time() <= time(16,30):
+  H_ThDER = 2 #
+  L_ThDER = 0
+else:
+  H_ThDER = 0 
+  L_ThDER = 0
+
+PHWSImport = round(random.uniform(L_ThDER,3),2)
+PHWSExport = round(random.uniform(L_ThDER,H_ThDER),2)
+PHWSTotal = PHWSImport-PHWSExport
+print(PHWSTotal)
+print(PHWSImport)
+print(PHWSExport)
 # 3 - Home Without Solar
 # 	Time 12am to 11:59pm
 # 	Import power from DER
