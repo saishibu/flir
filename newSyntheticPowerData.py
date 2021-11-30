@@ -93,11 +93,11 @@ elif time(10,31) <= datetime.now().time() <= time(4,30):
 else:
   H_ThFE = 0 #Solar High Th
   L_ThFE = 0 #Solar Low Th
-  L_ThF = 0 #Import High Th
+  H_ThF = 0 #Import High Th
   L_ThF = 0 #Import Low Th
 print('F')
-FImport = round(random.uniform(L_ThF,3),2)
-FExport = round(random.uniform(L_ThDFH,H_ThFH),2)
+FImport = round(random.uniform(L_ThFE,H_ThFE),2)
+FExport = round(random.uniform(L_ThF,H_ThF),2)
 FTotal = round(FImport-FExport,2)
 print(FTotal)
 # 7 - Battery
