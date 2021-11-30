@@ -113,9 +113,11 @@ if time(10,30) <= datetime.now().time() <= time(16,30):
 else:
   H_ThSP = 0 
   L_ThSP = 0
-
 SPExport = round(random.uniform(L_ThH,H_ThH),2)
-data ={ 'PDER':PDER,'PHWSImport':PHWSImport,'PHWSExport':PHWSExport, 'PHWSTotal':PHWSTotal, 'PHWOSImport':PHWOSImport, 'Charger':Charger, 'EV':EV, 'FImport':FImport, 'FExport':FExport, 'FTotal':FTotal, 'BImport':BImport, 'BExport':BExport, 'BTotal':BTotal, 'SPExport':SPExport }
+
+PComTotal = round(SPExport+BTotal+FTotal+EV+Charger+PHWOSImport+PHWSTotal+ PDER,2)
+PComGen = round(SPExport+PDER+FExport+PHWSExport,2)
+data ={ 'PDER':PDER,'PHWSImport':PHWSImport,'PHWSExport':PHWSExport, 'PHWSTotal':PHWSTotal, 'PHWOSImport':PHWOSImport, 'Charger':Charger, 'EV':EV, 'FImport':FImport, 'FExport':FExport, 'FTotal':FTotal, 'BImport':BImport, 'BExport':BExport, 'BTotal':BTotal, 'SPExport':SPExport, 'PComTotal':PComTotal, 'PComGen':PComGen }
 print(data)
-cur.execute("INSERT INTO `newSyntheticPowerData` (`PDER`, `PHWSImport`, `PHWSExport`, `PHWSTotal`, `PHWOSImport`, `Charger`, `EV`, `FImport`, `FExport`, `FTotal`, `BImport`, `BExport`, `BTotal`, `SPExport`) VALUES (%(PDER)s, %(PHWSImport)s, %(PHWSExport)s, %(PHWSTotal)s, %(PHWOSImport)s, %(Charger)s, %(EV)s, %(FImport)s, %(FExport)s, %(FTotal)s, %(BImport)s, %(BExport)s, %(BTotal)s, %(SPExport)s );",data)
+cur.execute("INSERT INTO `newSyntheticPowerData` (`PDER`, `PHWSImport`, `PHWSExport`, `PHWSTotal`, `PHWOSImport`, `Charger`, `EV`, `FImport`, `FExport`, `FTotal`, `BImport`, `BExport`, `BTotal`, `SPExport`, PComTotal , PComGen) VALUES (%(PDER)s, %(PHWSImport)s, %(PHWSExport)s, %(PHWSTotal)s, %(PHWOSImport)s, %(Charger)s, %(EV)s, %(FImport)s, %(FExport)s, %(FTotal)s, %(BImport)s, %(BExport)s, %(BTotal)s, %(SPExport)s, %(PComTotal)s, %(PComGen)s );",data)
 conn.commit()
