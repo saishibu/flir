@@ -104,7 +104,7 @@ print(FTotal)
 # 	Import and Export power from DER
 # 	Import and Export at Rs. 3 PU
 # 	Max capacity - 10kW
-
+print('B')
 BImport = round(random.uniform(0,10),2)
 BExport = round(random.uniform(0,10),2)
 BTotal = round(BImport-BExport,2)
