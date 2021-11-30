@@ -9,10 +9,12 @@ from datetime import datetime, time
 # 	Export excess to Battery or EV(through Charger)
 
 if time(10,30) <= datetime.now().time() <= time(16,30):
-  ThDER = 15 #Wind + Solar
+  H_ThDER = 15 #Wind + Solar
+  L_ThDER = 5
 else:
-  ThDER = 5 #Wind Only
-PDER = round(random.uniform(0,10),2)
+  H_ThDER = 5 #Wind Only
+  L_ThDER = 0
+PDER = round(random.uniform(L_ThDER,H_ThDER),2)
 
 print(PDER)
 
