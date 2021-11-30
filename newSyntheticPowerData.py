@@ -11,9 +11,11 @@ from datetime import datetime, time
 if time(10,30) <= datetime.now().time() <= time(16,30):
   H_ThDER = 15 #Wind + Solar
   L_ThDER = 5
+  print(datetime.now().time())
 else:
   H_ThDER = 5 #Wind Only
   L_ThDER = 0
+  print(datetime.now().time())
 PDER = round(random.uniform(L_ThDER,H_ThDER),2)
 
 print(PDER)
