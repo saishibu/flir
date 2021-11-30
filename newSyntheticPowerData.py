@@ -37,15 +37,23 @@ else:
 
 PHWSImport = round(random.uniform(L_ThDER,3),2)
 PHWSExport = round(random.uniform(L_ThDER,H_ThDER),2)
-PHWSTotal = PHWSImport-PHWSExport
+PHWSTotal = round(PHWSImport-PHWSExport,2)
+if PHWSTotal < 0:
+  print(Exporting)
+else:
+  print(Importing)
+  
 print(PHWSTotal)
 print(PHWSImport)
 print(PHWSExport)
+
 # 3 - Home Without Solar
 # 	Time 12am to 11:59pm
 # 	Import power from DER
 # 	Consumption Max 3kW
 # 	Import at Rs. 4PU
+PHWOSImport = round(random.uniform(2,3),2)
+print(PHWOSImport)
 
 # 4 - Charger
 # 	Time 12am to 11:59pm
