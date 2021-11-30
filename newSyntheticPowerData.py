@@ -1,6 +1,9 @@
 import random, math, pymysql
 from datetime import datetime, time
 
+conn = pymysql.connect(host='localhost', user='sai', password='sheeba99', database='flir')
+cur = conn.cursor()
+
 # 1 - DER
 # 	Time 12am to 11:59pm
 # 	Intermitted power cuts
@@ -125,3 +128,6 @@ else:
 
 SPExport = round(random.uniform(L_ThH,H_ThH),2)
 print(SPExport)
+data ={ 'PDER':PDER,'PHWSImport':PHWSImport,'PHWSExport':PHWSExport, 'PHWSTotal':PHWSTotal, 'PHWOSImport':PHWOSImport, 'Charger':Charger, 'EV':EV, 'FImport':FImport, 'FExport':FExport, 'FTotal':FTotal, 'BImport':BImport, 'BExport':BExport, 'BTotal':BTotal, 'SPExport':SPExport }
+cur.execute("INSERT INTO `newSyntheticPowerData` (`PDER`, `PHWSImport`, `PHWSExport`, `PHWSTotal`, `PHWOSImport`, `Charger`, `EV`, `FImport`, `FExport`, `FTotal`, `BImport`, `BExport`, `BTotal`, `SPExport`) VALUES (%(PDER)s, %(PHWSImport)s, %(PHWSExport)s, %(PHWSTotal)s, %(PHWOSImport)s, %(Charger)s, %(EV)s, %(FImport)s, %(FExport)s, %(FTotal)s, %(BImport)s, %(BExport)s, %(BTotal)s, %(SPExport)s );",data)
+conn.commit()
