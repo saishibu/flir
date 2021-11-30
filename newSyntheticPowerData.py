@@ -8,7 +8,7 @@ from datetime import datetime, time
 # 	Generate 10kW from Solar and 5kW from Wind
 # 	Export excess to Battery or EV(through Charger)
 
-if time(10,30) <= now().time() <= time(16,30):
+if time(10,30) <= datetime.now().time() <= time(16,30):
   ThDER = 15 #Wind + Solar
 else:
   ThDER = 5 #Wind Only
