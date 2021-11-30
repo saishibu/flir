@@ -66,7 +66,7 @@ Charger = round(random.uniform(3,10),2)
 # 	Import at Rs. 25PU
 # 	Max 10kW
 print('EV')
-EV = round(Charger*1.3 ,2)
+EV = round(Charger*0.95 ,2)
 
 # 6 - Factory
 # 	Time 9am to 6pm
