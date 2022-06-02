@@ -6,68 +6,25 @@
 	"output": {
 		"abi": [
 			{
-				"constant": true,
+				"constant": false,
 				"inputs": [
 					{
-						"name": "cost1",
+						"name": "nPget",
 						"type": "uint256"
 					},
 					{
-						"name": "cost2",
-						"type": "uint256"
-					}
-				],
-				"name": "totalCost",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "Cimp2",
-						"type": "uint256"
-					}
-				],
-				"name": "ConsumerSlabPrice2",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "Cimp1",
-						"type": "uint256"
-					}
-				],
-				"name": "ConsumerSlabPrice1",
-				"outputs": [
-					{
-						"name": "cost1",
+						"name": "nCget",
 						"type": "uint256"
 					},
 					{
-						"name": "",
-						"type": "string"
+						"name": "nEVget",
+						"type": "uint256"
 					}
 				],
+				"name": "getnPnCnEV",
+				"outputs": [],
 				"payable": false,
-				"stateMutability": "view",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -92,9 +49,9 @@
 	},
 	"sources": {
 		"eth based/FLIR_Contract.sol": {
-			"keccak256": "0xd1bec38a400403bb4ebd2b710257a06930885921c404105002f442105f43f943",
+			"keccak256": "0xd915ad9a3442c42f3566d9d358177b5666829461de525779fb91c489c94e7e80",
 			"urls": [
-				"bzzr://5d71eddcfbf8271ac8bc0fc086c13949547d6fbdb4595f7f594e057b0e24253d"
+				"bzzr://9f02045d2cb2481a2fcb7c796ec7c22defa3764c3dfcb22fed51beff0802e585"
 			]
 		},
 		"hardhat/console.sol": {

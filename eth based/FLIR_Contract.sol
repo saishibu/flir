@@ -5,41 +5,50 @@ import "hardhat/console.sol";
 
 
 contract FLIRContract{
-    uint nP = 5;
-    uint nC = 3;
-
-    uint btp = 3;
-
-    uint btc1 = 3;
-    uint btc2 = 4;
-    uint btc3 = 5;
-    uint btc4 = 6;
-    uint btc5 = 7;
-    uint btc6 = 8;
-    uint btc7 = 9;
-    uint btc8 = 10;
-
-    uint cost1 = 0;
-    uint cost2 = 0;
-    uint tCost = 0;
-    // constructor() {}
-
-    function ConsumerSlabPrice1(uint Cimp1)public view returns (uint cost1, string memory){
-        cost1 = Cimp1 * btc1;
-        return (cost1, integerToString(cost1));
+    mapping(address => uint256) private balaces;
+    mapping(address => role) private roles;
+    enum role{
+        Prosumers,
+        Consumers,
+        Nanogrid,
+        EV
     }
 
-    function ConsumerSlabPrice2(uint Cimp2)public view returns (string memory){
-        cost2 = Cimp2 * btc1;
-        return integerToString(cost2);
+
+    // constructor() public{}
+
+    uint nP;
+    uint nC;
+    uint nEV;
+
+    // uint btp = 3;
+
+    // uint btc1 = 3;
+    // uint btc2 = 4;
+    // uint btc3 = 5;
+    // uint btc4 = 6;
+    // uint btc5 = 7;
+    // uint btc6 = 8;
+    // uint btc7 = 9;
+    // uint btc8 = 10;
+
+    
+
+    function getnPnCnEV(uint nPget, uint nCget,uint nEVget) public{
+        
+        nP = nPget;
+        nC = nCget;
+        nEV = nEVget;
+        console.log("NP = %s",nP);
+        console.log("NC = %s",nC);
+        console.log("NEV = %s",nEV);
+        // return (nP1,nC1);
     }
 
-    function totalCost(uint cost1, uint cost2)public view returns (string memory){
-        tCost = cost1 + cost2;
-        return integerToString(tCost);
 
-    }
 
+    
+    
 
     function integerToString(uint _i) internal pure 
       returns (string memory) {
