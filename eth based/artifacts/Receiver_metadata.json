@@ -1,0 +1,62 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "balance",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "fallback"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"eth based/FLIR_Contract.sol": "Receiver"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"eth based/FLIR_Contract.sol": {
+			"keccak256": "0xe473aa7eee1ac147e5a657ef402f323d210e1b82009f2906129d6153b925fc90",
+			"urls": [
+				"bzzr://0b56272ec1033001e1b704a83549e58a783cc87dfe7f811ad6d8974e296ebd8f"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
+			"urls": [
+				"bzzr://f873d4a06ca3f2d6da1697bde44e45c9a6da7c36fee492652b6eaad78b07899b"
+			]
+		}
+	},
+	"version": 1
+}
