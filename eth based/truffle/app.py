@@ -23,35 +23,57 @@ contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi
 
 # Call contract function (this is not persisted to the blockchain)
 
-# setnPnCnEV = contract.functions.getnPnCnEV(5,3,2).call()
-# print(setnPnCnEV)
+setnPnCnEV = contract.functions.getnPnCnEV(5,3,2).call()
+print(setnPnCnEV)
 
-# Pexp1 = 200
+Pexp1 = 200
 
 
 # # contract.functions.getProsumerTariff(Pexp1).buildTransaction()
-# getPT = contract.functions.getProsumerTariff(Pexp1).call()
-# print(getPT)
+getPT = contract.functions.getProsumerTariff(Pexp1).call()
+print(getPT)
 
 
-# getCT = contract.functions.getConsumerTariff(420).call()
-# print(getCT)
+getCT = contract.functions.getConsumerTariff(420).call()
+print(getCT)
 
 accounts = web3.eth._get_accounts()
-print(accounts)
-# print(type(accounts))
+# print(accounts)
 
+ngAddress = accounts[0]
+c1Address = accounts[1]
+p1Address = accounts[2] 
 
-_address = "0x5eb1f05Bb1713A68bd0E3b23540Ccd8b7971c29d"
-getBal = contract.functions.getBalance(accounts[0]).call()
-print(getBal)
+# getBal = contract.functions.getBalance(accounts[0]).call()
+# print(getBal)
 
-_balance = web3.eth.getBalance(accounts[1])
+print("Old Balances")
+
+_balance = web3.eth.getBalance(ngAddress)
 print(_balance)
 
-# sendTXN = web3.eth.send_transaction({'to': accounts[1],'from': accounts[0],'value': '10000000000000000'})
-# print(sendTXN)
+_balance = web3.eth.getBalance(c1Address)
+print(_balance)
 
+_balance = web3.eth.getBalance(p1Address)
+print(_balance)
+
+sendTXN = web3.eth.send_transaction({'to': p1Address,'from': ngAddress,'value': '10000000000000000'})
+print(sendTXN)
+
+sendTXN = web3.eth.send_transaction({'to': ngAddress,'from': c1Address ,'value': '10000000000000000'})
+print(sendTXN)
+
+print("New Balances")
+
+_balance = web3.eth.getBalance(ngAddress)
+print(_balance)
+
+_balance = web3.eth.getBalance(c1Address)
+print(_balance)
+
+_balance = web3.eth.getBalance(p1Address)
+print(_balance)
 
 
 # getSellerID = contract.functions.sellerID(1).call()
