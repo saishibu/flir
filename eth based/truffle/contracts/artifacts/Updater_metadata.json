@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "updateBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"eth based/truffle/contracts/LedgerBalance.sol": "Updater"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"eth based/truffle/contracts/LedgerBalance.sol": {
+			"keccak256": "0xbbb4ce1bfa7918c92bcac0cf7cb7a7a5c47198714d5a77b2ecf9cb5110b8e365",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fad53eea3d7893d50e656bcae44473860437c1bffe5c8d390f1d58ea2671cbe2",
+				"dweb:/ipfs/QmXFHh5ydUE79dNcidyxhgkXzc2HFRDtkbBNZ14uPsMioJ"
+			]
+		}
+	},
+	"version": 1
+}
