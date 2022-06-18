@@ -7,26 +7,6 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "balCheck",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "balance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "btc1",
 				"outputs": [
 					{
@@ -146,44 +126,6 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "buyers",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_balanceCheck",
-						"type": "address"
-					}
-				],
-				"name": "getBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "bal",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
 						"name": "Cimp",
 						"type": "uint256"
 					}
@@ -216,19 +158,6 @@
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getSellers",
-				"outputs": [
-					{
-						"internalType": "address[10]",
-						"name": "",
-						"type": "address[10]"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -267,89 +196,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "manager",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "seller",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "nPget",
-						"type": "uint256"
-					}
-				],
-				"name": "sellerID",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address payable",
-						"name": "_receiver",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "send",
-				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -366,7 +213,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"eth based/truffle/contracts/FLIR_Contract.sol": "FLIRContract"
+			"contracts/FLIR_Contract.sol": "FLIRContract"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -380,12 +227,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"eth based/truffle/contracts/FLIR_Contract.sol": {
-			"keccak256": "0x754bd63bc41c1bc80aa21c1dddb15563bb29aa6dd91a5dd786bf9a650ee400f1",
+		"contracts/FLIR_Contract.sol": {
+			"keccak256": "0x523f917facf94ef3fa40aa506f2a8d1c9ed532663efb7998bce8195c3b999244",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e575c2cbedb0a4291d621b7b1947825e38f9d882e505aa4b49789247cb78a998",
-				"dweb:/ipfs/QmURt9kaHzva5W8ccSs7PNtsk7967uSn1PkW4u4BAbiGUD"
+				"bzz-raw://d9f54b0ed3f9c535b98943b591421d1e7edd4d0b6cba34b930e060658c5a51c1",
+				"dweb:/ipfs/QmeS97Vhd4MNB7yRznk39tt4fr7exr73ZsNWRtyZbjB4ed"
 			]
 		}
 	},

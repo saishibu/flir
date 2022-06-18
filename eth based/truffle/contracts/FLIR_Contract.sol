@@ -8,35 +8,6 @@ pragma solidity >=0.4.4;
 
 
 contract FLIRContract{
-    address public owner;
-    address public manager;
-    address[16] public seller;
-    address[16] public buyers;
-
-    // mapping(address => uint) public balances;
-    // mapping(address => uint256) private balaces;
-    // mapping(address => role) private roles;
-    
-    // // mapping(uint256 => address payable) Prosumers;
-    // // mapping(uint256 => address payable) Consumers;
-    // // mapping(uint256 => address payable) Nanogrid;
-    // // mapping(uint256 => address payable) EV;
-    
-    // enum role{
-    //     Prosumers,
-    //     Consumers,
-    //     Nanogrid,
-    //     EV
-    // }
-
-    uint public balance = 0;
-    // constructor() public{
-    //     owner = msg.sender;
-    // }
-
-    // uint public nP;
-    // uint public nC;
-    // uint public nEV;
 
     uint public btp = 3;
 
@@ -49,26 +20,12 @@ contract FLIRContract{
     uint public btc7 = 9;
     uint public btc8 = 10;
 
-    function sellerID(uint nPget) public returns (uint) {
-        require (nPget >=0 && nPget <= 10);
-        seller[nPget] = msg.sender;
-        return nPget;
-    }
-
-    function getSellers() public view returns (address[16] memory){
-        return seller;
-    }
-    
-
-    function getnPnCnEV(uint nPget, uint nCget,uint nEVget) public
+    function getnPnCnEV(uint nPget, uint nCget,uint nEVget) public pure
     returns (uint nP,uint nC,uint nEV){
         
         nP = nPget;
         nC = nCget;
         nEV = nEVget;
-        // console.log("NP = %s",nP);
-        // console.log("NC = %s",nC);
-        // console.log("NEV = %s",nEV);
         return (nP,nC,nEV);
     }
 
@@ -108,75 +65,4 @@ contract FLIRContract{
         return (Tc);
     }
 
-    function send(address payable _receiver, uint amount) payable public {
-    // _receiver.call.value(msg.value).gas(20317)();
-        require(msg.value >= amount);
-        _receiver.transfer(amount);
-    }
-
-    function balCheck() public payable {
-    balance += msg.value;
-    }
-
-    function getBalance(address _balanceCheck) public returns (uint bal){
-        bal = _balanceCheck.balance;
-        return (bal);
-
-    }
-
-
-    // function getProsumerTariff(uint nPget, uint nCget,uint nEVget) public{}
-
-    // uint public amount = 1 ether;
-
-
-    // function send(address _addr, uint amount) payable public {
-    //     require(msg.value >= amount);
-    //     _addr.transfer(msg.value);
-    // }
-
-
-//   uint public balance = 0;
-  
-//   function () payable {
-//     balance += msg.value;
-//   }
-
-
-    
-    
-
-//     function integerToString(uint _i) internal pure 
-//       returns (string memory) {
-      
-//       if (_i == 0) {
-//          return "0";
-//       }
-//       uint j = _i;
-//       uint len;
-      
-//       while (j != 0) {
-//          len++;
-//          j /= 10;
-//       }
-//       bytes memory bstr = new bytes(len);
-//       uint k = len - 1;
-      
-//       while (_i != 0) {
-//          bstr[k--] = byte(uint8(48 + _i % 10));
-//          _i /= 10;
-//       }
-//       return string(bstr);//access local variable
-//    }
-
-
-
 }
-
-// contract Receiver {
-//   uint public balance = 0;
-  
-//   function () payable {
-//     balance += msg.value;
-//   }
-// }
