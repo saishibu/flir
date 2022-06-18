@@ -24,8 +24,22 @@ with open(compiled_contract_path) as file:
 # Fetch deployed contract reference
 contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
 
-# Call contract function (this is not persisted to the blockchain)
 
+def sendPayment(fromAddress, toAddress, payAmount):
+	fromBal = checkBalance(fromAddress)
+	if fromBal > payAmount:
+		sendTXN = web3.eth.send_transaction({'to': toAddress,'from': fromAddress ,'value': payAmount})
+		fromBal = checkBalance(fromAddress)
+		toBal = checkBalance(toAddress)
+		return ('tx_hash: {}'.format(sendTXN.hex()), fromBal,toBal)
+	else:
+		return "Transaction Failed: Balance too low"
+
+def checkBalance(fromAddress):
+	balance = web3.eth.getBalance(fromAddress)
+	return balance
+
+# Call contract function (this is not persisted to the blockchain)
 setnPnCnEV = contract.functions.getnPnCnEV(5,3,2).call()
 contract.functions.getnPnCnEV(5,3,2).transact()
 print (setnPnCnEV)
@@ -33,68 +47,49 @@ print (setnPnCnEV)
 Pexp1 = 200
 
 
-# # contract.functions.getProsumerTariff(Pexp1).buildTransaction()
+# contract.functions.getProsumerTariff(Pexp1).buildTransaction()
 getPT = contract.functions.getProsumerTariff(Pexp1).call()
 contract.functions.getProsumerTariff(Pexp1).transact()
+getPT = getPT/1000
 print(getPT)
 
 getCT = contract.functions.getConsumerTariff(420).call()
 contract.functions.getConsumerTariff(420).transact()
+getCT = getCT/1000
 print(getCT)
 
-#tx_receipt = web3.eth.waitForTransactionReceipt(getCT)
-# print('tx_hash: {}'.format(getCT.hex()))
-#print(tx_receipt)
-
-
 accounts = web3.eth._get_accounts()
-# print(accounts)
-
 ngAddress = accounts[0]
 c1Address = accounts[1]
 p1Address = accounts[2] 
 
-# getBal = contract.functions.getBalance(accounts[0]).call()
-# print(getBal)
-
 print("Old Balances")
 
-_balance = web3.eth.getBalance(ngAddress)
-print("Nano Grid Wallet Balance: " + str(round(web3.fromWei(_balance,'ether'),2))+ " Eth")
+_balance = round(web3.fromWei(checkBalance(ngAddress),'ether'),2)
+print("Nano Grid Wallet Balance: " + str(_balance)+ " Eth")
 
-_balance = web3.eth.getBalance(c1Address)
-print("C1 Wallet Balance: " + str(round(web3.fromWei(_balance,'ether'),2))+ " Eth")
+_balance = round(web3.fromWei(checkBalance(c1Address),'ether'),2)
+print("C1 Wallet Balance: " + str(_balance)+ " Eth")
 
-_balance = web3.eth.getBalance(p1Address)
-print("P1 Wallet Balance: " + str(round(web3.fromWei(_balance,'ether'),2))+ " Eth")
-
-
-sendTXN = web3.eth.send_transaction({'to': p1Address,'from': ngAddress,'value': web3.toWei(getPT/1000,'ether')})
-# print(sendTXN)
-#tx_receipt = web3.eth.waitForTransactionReceipt(getCT)
-print('tx_hash: {}'.format(sendTXN.hex()))
+_balance = round(web3.fromWei(checkBalance(p1Address),'ether'),2)
+print("P1 Wallet Balance: " + str(_balance)+ " Eth")
 
 
-sendTXN = web3.eth.send_transaction({'to': ngAddress,'from': c1Address ,'value': web3.toWei(getCT/1000,'ether')})
-# print(sendTXN)
-print('tx_hash: {}'.format(sendTXN.hex()))
+#Payments to Prosumers
+NGtoP1 = sendPayment(ngAddress,p1Address,web3.toWei(getPT,'ether'))
+print(NGtoP1[0])
 
-
+#Payments from Consumers
+C1toNG= sendPayment(c1Address,ngAddress,web3.toWei(getCT,'ether'))
 
 print("New Balances")
 
-_balance = web3.eth.getBalance(ngAddress)
-print("Nano Grid Wallet Balance: " + str(round(web3.fromWei(_balance,'ether'),2))+ " Eth")
+_balance = round(web3.fromWei(checkBalance(ngAddress),'ether'),2)
+print("Nano Grid Wallet Balance: " + str(_balance)+ " Eth")
 
-_balance = web3.eth.getBalance(c1Address)
-print("C1 Wallet Balance: " + str(round(web3.fromWei(_balance,'ether'),2))+ " Eth")
+_balance = round(web3.fromWei(checkBalance(c1Address),'ether'),2)
+print("C1 Wallet Balance: " + str(_balance)+ " Eth")
 
-_balance = web3.eth.getBalance(p1Address)
-print("P1 Wallet Balance: " + str(round(web3.fromWei(_balance,'ether'),2))+ " Eth")
+_balance = round(web3.fromWei(checkBalance(p1Address),'ether'),2)
+print("P1 Wallet Balance: " + str(_balance)+ " Eth")
 
-
-# getSellerID = contract.functions.sellerID(1).call()
-# print(getSellerID)
-
-# getSeller = contract.functions.getSellers().call()
-# print(getSeller)
