@@ -5,7 +5,7 @@ from web3 import Web3, HTTPProvider
 # truffle development blockchain address
 blockchain_address = 'http://127.0.0.1:9545'
 # Client instance to interact with the blockchain
-w3 = Web3(HTTPProvider(blockchain_address))
+web3 = Web3(HTTPProvider(blockchain_address))
 
 accounts=web3.eth._get_accounts()
 fromAddress = accounts[0]
