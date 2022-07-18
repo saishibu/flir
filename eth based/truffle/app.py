@@ -93,3 +93,5 @@ print("C1 Wallet Balance: " + str(_balance)+ " Eth")
 _balance = round(web3.fromWei(checkBalance(p1Address),'ether'),2)
 print("P1 Wallet Balance: " + str(_balance)+ " Eth")
 
+payment=contract.functions.sendViaTransfer(p1Address).transact(value:10000000000000)
+print(payment)
