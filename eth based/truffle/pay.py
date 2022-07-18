@@ -24,6 +24,9 @@ with open(compiled_contract_path) as file:
 # Fetch deployed contract reference
 contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
 
+def checkBalance(fromAddress):
+	balance = web3.eth.getBalance(fromAddress)
+	return balance
 
 accounts = web3.eth._get_accounts()
 ngAddress = accounts[0]
