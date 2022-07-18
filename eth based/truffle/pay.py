@@ -45,9 +45,9 @@ _balance = round(web3.fromWei(checkBalance(p1Address),'ether'),2)
 print("P1 Wallet Balance: " + str(_balance)+ " Eth")
 
 payment=contract.functions.sendViaTransfer(p1Address)
-txh=payment.transact({"from":ngAddress,"value":1})
 print(payment)
-
+txh=payment.transact({"from":ngAddress,"value":1})
+print(txh)
 
 print("New Balances")
 
