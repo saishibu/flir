@@ -50,7 +50,9 @@ print("P1 Wallet Balance: " + str(_balance)+ " Eth")
 
 payment=contract.functions.sendViaTransfer(p1Address)
 print(payment)
-txh=payment.transact({"from":ngAddress,"value":1})
+
+txh=payment.transact({"from":ngAddress,"value":web3.toWei(2,'ether')})
+
 print(txh)
 
 print("New Balances")
