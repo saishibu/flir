@@ -33,6 +33,10 @@ ngAddress = accounts[0]
 c1Address = accounts[1]
 p1Address = accounts[2] 
 
+print("ngA:" str(ngAddress))
+print("C1A:" str(c1Address))
+print("P1A:" str(p1Address))
+
 print("Old Balances")
 
 _balance = round(web3.fromWei(checkBalance(ngAddress),'ether'),2)
