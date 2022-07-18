@@ -1,15 +1,15 @@
-import json
+#Web3 and Smart Contract Interaction to transfer funds
+
 from web3 import Web3, HTTPProvider
-from hexbytes import HexBytes
 
 # truffle development blockchain address
 blockchain_address = 'http://127.0.0.1:9545'
 # Client instance to interact with the blockchain
-web3 = Web3(HTTPProvider(blockchain_address))
+w3 = Web3(HTTPProvider(blockchain_address))
 
-# Set the default account (so we don't need to set the "from" for every transaction call)
-web3.eth.defaultAccount = web3.eth.accounts[0]
-print(web3.eth.defaultAccount)
+accounts=web3.eth._get_accounts()
+fromAddress = accounts[0]
+toAddress = accounts[1]
 
 # Path to the compiled contract JSON file
 compiled_contract_path = 'build/contracts/FLIRContract.json'
@@ -24,45 +24,16 @@ with open(compiled_contract_path) as file:
 # Fetch deployed contract reference
 contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi)
 
-def checkBalance(fromAddress):
-	balance = web3.eth.getBalance(fromAddress)
-	return balance
-
-accounts = web3.eth._get_accounts()
-ngAddress = accounts[0]
-c1Address = accounts[1]
-p1Address = accounts[2] 
-
-print("ngA:" + str(ngAddress))
-print("C1A:" + str(c1Address))
-print("P1A:" + str(p1Address))
 
 print("Old Balances")
 
-_balance = round(web3.fromWei(checkBalance(ngAddress),'ether'),2)
-print("Nano Grid Wallet Balance: " + str(_balance)+ " Eth")
+print("Balance of 'From' Address: " +str(web3.fromWei(web3.eth.getBalance(fromAddress,'ether'))))
+print("Balance of 'To' Address: " +str(web3.fromWei(web3.eth.getBalance(toAddress,'ether'))))
 
-_balance = round(web3.fromWei(checkBalance(c1Address),'ether'),2)
-print("C1 Wallet Balance: " + str(_balance)+ " Eth")
-
-_balance = round(web3.fromWei(checkBalance(p1Address),'ether'),2)
-print("P1 Wallet Balance: " + str(_balance)+ " Eth")
-
-payment=contract.functions.sendViaTransfer(p1Address)
+payment=contract.functions.sendViaTransfer(toAddress).transact({"from":fromAddress,"value":web3.toWei(2,'ether')})
 print(payment)
-
-txh=payment.transact({"from":ngAddress,"value":web3.toWei(2,'ether')})
-
-print(txh)
 
 print("New Balances")
 
-_balance = round(web3.fromWei(checkBalance(ngAddress),'ether'),2)
-print("Nano Grid Wallet Balance: " + str(_balance)+ " Eth")
-
-_balance = round(web3.fromWei(checkBalance(c1Address),'ether'),2)
-print("C1 Wallet Balance: " + str(_balance)+ " Eth")
-
-_balance = round(web3.fromWei(checkBalance(p1Address),'ether'),2)
-print("P1 Wallet Balance: " + str(_balance)+ " Eth")
-
+print("Balance of 'From' Address: " +str(web3.fromWei(web3.eth.getBalance(fromAddress,'ether'))))
+print("Balance of 'To' Address: " +str(web3.fromWei(web3.eth.getBalance(toAddress,'ether'))))
