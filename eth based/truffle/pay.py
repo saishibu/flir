@@ -36,5 +36,5 @@ print(payment)
 
 print("New Balances")
 
-print("Balance of 'From' Address: " +str(web3.fromWei(web3.eth.getBalance(fromAddress,'ether'))))
-print("Balance of 'To' Address: " +str(web3.fromWei(web3.eth.getBalance(toAddress,'ether'))))
+print("Balance of 'From' Address: " +str(web3.fromWei(web3.eth.getBalance(fromAddress),'ether')))
+print("Balance of 'To' Address: " +str(web3.fromWei(web3.eth.getBalance(toAddress),'ether')))
