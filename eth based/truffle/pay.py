@@ -28,8 +28,8 @@ contract = web3.eth.contract(address=deployed_contract_address, abi=contract_abi
 
 print("Old Balances")
 
-print("Balance of 'From' Address: " +str(web3.fromWei(web3.eth.getBalance(fromAddress,'ether'))))
-print("Balance of 'To' Address: " +str(web3.fromWei(web3.eth.getBalance(toAddress,'ether'))))
+print("Balance of 'From' Address: " +str(web3.fromWei(web3.eth.getBalance(fromAddress),'ether')))
+print("Balance of 'To' Address: " +str(web3.fromWei(web3.eth.getBalance(toAddress),'ether')))
 
 payment=contract.functions.sendViaTransfer(toAddress).transact({"from":fromAddress,"value":web3.toWei(2,'ether')})
 print(payment)
