@@ -198,6 +198,19 @@
 				],
 				"stateMutability": "pure",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "sendViaTransfer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -228,11 +241,11 @@
 	},
 	"sources": {
 		"contracts/FLIR_Contract.sol": {
-			"keccak256": "0x523f917facf94ef3fa40aa506f2a8d1c9ed532663efb7998bce8195c3b999244",
+			"keccak256": "0x372972540a082f5e718ed9ee8e76439423373cedcfd58bfc6d44870e97a2e88b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d9f54b0ed3f9c535b98943b591421d1e7edd4d0b6cba34b930e060658c5a51c1",
-				"dweb:/ipfs/QmeS97Vhd4MNB7yRznk39tt4fr7exr73ZsNWRtyZbjB4ed"
+				"bzz-raw://a03c0367c6fdf23496c08a3c01825b61efa360730b7fbcb3d0f7d0c5f290d7db",
+				"dweb:/ipfs/QmcGgENrbML9AVWgysew1P9ZGFpjzfPdQZvpPSLEuWzseQ"
 			]
 		}
 	},

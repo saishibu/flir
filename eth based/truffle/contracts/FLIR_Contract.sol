@@ -65,4 +65,8 @@ contract FLIRContract{
         return (Tc);
     }
 
+    function sendViaTransfer(address payable _to) public payable{
+    _to.transfer(msg.value);
+    }
+
 }
