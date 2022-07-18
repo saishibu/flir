@@ -1,6 +1,7 @@
 #Web3 and Smart Contract Interaction to transfer funds
 
 from web3 import Web3, HTTPProvider
+import json
 
 # truffle development blockchain address
 blockchain_address = 'http://127.0.0.1:9545'
