@@ -66,6 +66,8 @@ p1Address = accounts[2]
 
 
 delta = deltaJson()
+print(delta)
+
 
 print("Old Balances")
 
