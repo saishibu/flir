@@ -1,6 +1,7 @@
 import json
 from web3 import Web3, HTTPProvider
 from hexbytes import HexBytes
+from getDelta import deltaJson
 
 # truffle development blockchain address
 blockchain_address = 'http://127.0.0.1:9545'
@@ -62,6 +63,9 @@ accounts = web3.eth._get_accounts()
 ngAddress = accounts[0]
 c1Address = accounts[1]
 p1Address = accounts[2] 
+
+
+delta = deltaJson()
 
 print("Old Balances")
 
