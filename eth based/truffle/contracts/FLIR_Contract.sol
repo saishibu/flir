@@ -9,33 +9,38 @@ pragma solidity >=0.4.4;
 
 contract FLIRContract{
 
-    uint public btp = 3;
+    uint btp = 3;
 
-    uint public btc1 = 3;
-    uint public btc2 = 4;
-    uint public btc3 = 5;
-    uint public btc4 = 6;
-    uint public btc5 = 7;
-    uint public btc6 = 8;
-    uint public btc7 = 9;
-    uint public btc8 = 10;
+    uint btc1 = 3;
+    uint btc2 = 4;
+    uint btc3 = 5;
+    uint btc4 = 6;
+    uint btc5 = 7;
+    uint btc6 = 8;
+    uint btc7 = 9;
+    uint btc8 = 10;
 
-    function getnPnCnEV(uint nPget, uint nCget,uint nEVget) public pure
-    returns (uint nP,uint nC,uint nEV){
+    function getnPnCnEV(uint nPget, uint nCget,uint nEVget) public 
+    returns (uint,uint,uint)
+    {
         
-        nP = nPget;
-        nC = nCget;
-        nEV = nEVget;
-        return (nP,nC,nEV);
+       uint nP = nPget;
+       uint nC = nCget;
+       uint nEV = nEVget;
+       return (nP,nC,nEV);
     }
 
-    function getProsumerTariff(uint Pexp) public returns (uint Tp){
-        Tp = Pexp * btp;
-        return (Tp);
+    function getProsumerTariff(uint Pexp) public 
+    returns (uint)
+    {
+       uint Tp = Pexp * btp;
+       return (Tp);
     }
 
-    function getConsumerTariff(uint Cimp) public returns (uint Tc){
-        
+    function getConsumerTariff(uint Cimp) public 
+    returns (uint)
+    {
+        uint Tc = 0;
         if(Cimp < 251){
             if(Cimp < 51){
                 Tc = Cimp * btc1;
@@ -65,8 +70,17 @@ contract FLIRContract{
         return (Tc);
     }
 
-    function sendViaTransfer(address payable _to) public payable{
+    function sendViaTransfer(address payable _to) public
+    payable
+    {
     _to.transfer(msg.value);
+    }
+
+    function prosumerReward(uint P1, uint delta) public
+    returns (uint)
+    {
+        uint reward = (P1 * btp) + (delta * btp) + (delta * delta * btp / (delta+P1));
+        return(reward);
     }
 
 }
