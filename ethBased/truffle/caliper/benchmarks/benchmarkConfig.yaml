@@ -1,0 +1,20 @@
+test:
+  name: simplecalc
+  description: benchmark for simplecalc
+  
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: sum
+      description: Test description
+      txDuration: 30
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 10
+      workload:
+        module: /home/wnaadmin/Git/flir/ethBased/truffle/caliper/benchmarks/scenario/sum.js
+        arguments:
+          assets: 10
+          contractId: simplecalc
