@@ -1,0 +1,25 @@
+simpleArgs: &simple-args
+  initialMoney: 10000
+  moneyToTransfer: 100
+  numberOfAccounts: &number-of-accounts 1000
+test:
+  name: simplecalc
+  description: >-
+    This is an example benchmark for Caliper
+    type: local
+    number: 1
+  workers:
+    number: 1
+  rounds:
+    - label: sum
+      description: >-
+        Test description for the opening of an account through the deployed
+        contract.
+      txNumber: *number-of-accounts
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 50
+      workload:
+        module: benchmarks/scenario/sum.js
+        arguments: *simple-args
